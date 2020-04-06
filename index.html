@@ -1,0 +1,111 @@
+<html>
+  <head>
+    <title>Visual Graph Isomorphism</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="js/constants.js"></script>
+    <script src="js/upload_graphs.js"></script>
+    <script src="js/graph.js"></script>
+    <script src="js/process_graph.js"></script>
+    <script src="js/isomorphism_result.js"></script>
+    <script src="js/save_isomorphism_result.js"></script>
+  </head>
+  <body>
+    <div class="graph left">
+      <div class="uploader">
+        <form id="upload-file1" method="post" enctype="multipart/form-data">
+          <div class="custom-file mb-3">
+            <input
+              type="file"
+              class="custom-file-input"
+              id="graphfile1"
+              name="file"
+            />
+            <label class="custom-file-label" for="customFile"></label>
+          </div>
+        </form>
+      </div>
+      <div class="centered">
+        <svg id="graph1svg" width="960" height="600"></svg>
+      </div>
+      <div class="loading-bar" id="loadingBar1" style="display:none;">
+        <img src="assets/loading.svg" />
+      </div>
+    </div>
+    <div
+      class="isomorphism-checker"
+      id="iso-checker-container"
+      style="display:none"
+    >
+      <button
+        type="button"
+        id="check-iso-btn"
+        class="btn btn-secondary"
+        onclick="showIsomorphismResult()"
+      >
+        Check Isomorphism
+      </button>
+    </div>
+    <div
+      class="isomorphism-result-container"
+      id="result-container"
+      style="display:none;"
+    >
+      <div class="isomorphism-result">
+        <div
+          class="overflow-auto"
+          id="result-scroll-pane"
+          style="width: 175px; height: 145px;"
+        >
+          <table
+            class="table table-borderless"
+            id="result-table"
+            style="text-align: center;"
+          >
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="save-isomorphism-result">
+        <button
+          type="button"
+          id="save-iso-results-btn"
+          class="btn"
+          style="color: rgb(255, 255, 255); background-color: rgb(50, 80, 131);"
+          onclick="saveIsomorphismResult()"
+          disabled
+        >
+          Save
+        </button>
+      </div>
+      <div class="saved-file-info"></div>
+    </div>
+    <div class="graph right">
+      <div class="uploader">
+        <form id="upload-file2" method="post" enctype="multipart/form-data">
+          <div class="custom-file mb-3">
+            <input
+              type="file"
+              class="custom-file-input"
+              id="graphfile2"
+              name="file"
+            />
+            <label class="custom-file-label" for="customFile"></label>
+          </div>
+        </form>
+      </div>
+      <div class="centered">
+        <svg id="graph2svg" width="960" height="600"></svg>
+      </div>
+      <div class="loading-bar" id="loadingBar2" style="display:none;">
+        <img src="assets/loading.svg" />
+      </div>
+    </div>
+  </body>
+</html>
